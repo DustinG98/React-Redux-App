@@ -2,7 +2,10 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 const JobList = () => {
+    //state from redux
     const state = useSelector(state => state)
+
+    //deconstruct jobs, error, and isFetching out of state
     const { jobs, error, isFetching } = state;
     return (
         <div>
