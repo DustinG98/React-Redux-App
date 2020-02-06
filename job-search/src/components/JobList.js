@@ -1,12 +1,13 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 
-const JobList = props => {
-    console.log(props)
+const JobList = () => {
+    const state = useSelector(state => state)
+    const { jobs, error, isFetching } = state;
     return (
         <div>
             <h1>Job List</h1>
-                { props.error !== "" ? <p>{props.error.message}</p> : props.isFetching === true ? <p>Loading....</p>  : props.jobs.map(job => {
+                { error !== "" ? <p>{error.message}</p> : isFetching === true ? <p>Loading....</p>  : jobs.map(job => {
                 return <div key={job.id}>
                             {<img style={{maxWidth: '100px', maxHeight: '100px'}} alt={`${job.company} logo`} src={job.company_logo}/>}
                             <h3>{job.company} - {job.title}</h3>
@@ -18,10 +19,11 @@ const JobList = props => {
     )
 }
 
-const mapStateToProps = state => ({
-    jobs: state.jobs,
-    isFetching: state.isFetching,
-    error: state.error
-})
+// const mapStateToProps = state => ({
+//     jobs: state.jobs,
+//     isFetching: state.isFetching,
+//     error: state.error
+// })
 
-export default connect(mapStateToProps)(JobList)
+// export default connect(mapStateToProps)(JobList)
+export default JobList
