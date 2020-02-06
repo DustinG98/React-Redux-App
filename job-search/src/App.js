@@ -1,13 +1,15 @@
 import React from 'react';
 
 import './App.css';
-import JobsList from './components/JobsList'
-
+import FetchJobsList from './components/FetchJobsList'
+import JobList from './components/JobList'
 
 function App() {
   return (
     <div className="App">
-      <JobsList/>
+      <h1>Job Search</h1>
+      <FetchJobsList/>
+      <JobList/>
     </div>
   );
 }
