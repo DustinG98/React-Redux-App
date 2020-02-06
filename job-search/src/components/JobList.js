@@ -5,10 +5,13 @@ const JobList = props => {
     console.log(props)
     return (
         <div>
-            <h2>Job List</h2>
+            <h1>Job List</h1>
                 { props.error !== "" ? <p>{props.error.message}</p> : props.isFetching === true ? <p>Loading....</p>  : props.jobs.map(job => {
                 return <div key={job.id}>
-                            <h4>{job.title}</h4>
+                            {<img style={{maxWidth: '100px', maxHeight: '100px'}} alt={`${job.company} logo`} src={job.company_logo}/>}
+                            <h3>{job.company} - {job.title}</h3>
+                            <h5>{job.location}</h5>
+                            <p>{job.type}</p>
                         </div>
             }) }
         </div>
