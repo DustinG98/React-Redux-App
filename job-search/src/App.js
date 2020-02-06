@@ -7,7 +7,7 @@ import JobList from './components/JobList'
 function App() {
   return (
     <div className="App">
-      <h1>Job Search</h1>
+      <h1>GitHub Jobs - Search</h1>
       <FetchJobsList/>
       <JobList/>
     </div>

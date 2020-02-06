@@ -3,6 +3,9 @@ import { useDispatch } from 'react-redux'
 
 import { getJobs } from '../actions'
 
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+
 const FetchJobsList = () => {
     //define dispatch
     const dispatch = useDispatch()
@@ -28,9 +31,9 @@ const FetchJobsList = () => {
     }
 
     return (
-        <div>
-            <input type="text" value={searchTerm} onChange={e => handleSearchTermChange(e)}/>
-            <button onClick={e => fetchJobs(e)}>Get Jobs</button>
+        <div className="fetchForm">
+            <TextField placeholder="Any search term here..." variant="outlined" type="text" value={searchTerm} onChange={e => handleSearchTermChange(e)}/>
+            <Button variant="contained" color="primary" onClick={e => fetchJobs(e)}>Search Jobs</Button>
         </div>
     )
 }
